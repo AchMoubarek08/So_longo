@@ -15,7 +15,8 @@ char	**map(int *fd)
 	i = 0;
 	j = 1;
 	map = malloc(400);
-	while(j < 6)
+	str =  get_next_line(*fd);
+	while(str[i])
 	{
 		i = 0;
 		str =  get_next_line(*fd);
@@ -36,7 +37,7 @@ void	str_is_one(char *str)
 	while(str[i])
 	{
 		if(str[i] != '1' && str[i] != '\n')
-			ft_error("lfog wla lte7t");
+			ft_error("lfog wla lte7t\n");
 		i++;
 	}
 	*str++;
@@ -45,11 +46,12 @@ void	str_is_one(char *str)
 void	begin_end_one(char *str)
 {
 	int i;
-
+	int len;
 	i = 0;
+	len = strlen(str) - 2;
 	while(str[i])
 	{
-		if(i == 0 || i == 12)
+		if(i == 0 || i == len)
 		{
 			if(str[i] != '1')
 				ft_error("m7lola mn jnab");
@@ -57,11 +59,19 @@ void	begin_end_one(char *str)
 		i++;
 	}
 }
-
+int	count_argc(char **str)
+{
+	int i;
+	i = 0;
+	while(str[i])
+		i++;
+	return(i);
+}
 void	check_map(char **str)
 {
 	int i = 1;
 	char *temp;
+
 	while(str[i])
 	{
 		if(i == 1 || i == 5)
@@ -113,6 +123,7 @@ void	check_items(char **str)
 		}
 		i++;
 	}
+	printf("%d\n", count.p);
 	if(count.p != 1 || count.exit != 1 || count.c < 1)
 		ft_error("minimum");
 }
