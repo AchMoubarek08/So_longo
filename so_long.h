@@ -9,6 +9,16 @@
 # include <stddef.h>
 # include <fcntl.h>
 
+typedef struct t_count
+{
+    int p;
+    int c ;
+    int zero;
+    int one;
+    int exit;
+}s_count;
+
+
 char	*ft_strdup(const char *s);
 size_t	ft_strlen(const char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
