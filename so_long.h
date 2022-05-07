@@ -9,6 +9,30 @@
 # include <stddef.h>
 # include <fcntl.h>
 
+// typedef struct t_items
+// {
+//     int window[2];
+//     s_element player;
+//     s_element exit;
+//     s_element *coin;
+//     s_element *terre;
+//     s_element *mur;
+// }s_items;
+
+typedef enum bool
+{
+	false,
+	true
+}t_bool;
+
+typedef struct element
+{
+    char name;
+    int x;
+    int y;
+    struct element *next;
+}element, *t_element;
+
 typedef struct t_count
 {
     int p;
@@ -20,7 +44,7 @@ typedef struct t_count
 
 
 char	*ft_strdup(const char *s);
-size_t	ft_strlen(const char *str);
+int	    ft_strlen(const char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *s, int c);
