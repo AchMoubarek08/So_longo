@@ -27,15 +27,15 @@ void	begin_end_one(char *str, int width)
 	}
 }
 
-void	check_items(char **str, int height)
+int	check_items(char **str, int height)
 {
 	int i;
 	int j;
-	s_count count;
+	t_count count;
 	count.p = 0;
 	count.one = 0;
 	count.zero = 0;
-	count.c = 0;
+	(*count)->c = 0;
 	count.exit = 0;
 
 	j = 0;
@@ -54,13 +54,14 @@ void	check_items(char **str, int height)
 			else if(str[i][j] == '0')
 				count.zero++;
 			else if(str[i][j] == 'C')
-				count.c++;
+				(*count)->c++;
 			else if(str[i][j] != '\n')
 				ft_error("Item not found.");
 			j++;
 		}
 		i++;
 	}
-	if(count.p != 1 || count.exit != 1 || count.c < 1)
+	if(count.p != 1 || count.exit != 1 || (*count)->c < 1)
 		ft_error("Missing item(s).");
+	return((*count)->c);
 }

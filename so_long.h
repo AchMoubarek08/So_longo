@@ -10,27 +10,33 @@
 # include <fcntl.h>
 # include <mlx.h>
 # define imgsize 50
+# define left -1
+# define right 1
+# define up -1
+# define down 1
 
 typedef struct s_vars
 {
-	void			*mlx_ptr;
-	void			*mlx_win;
+	void			*ptr;
+	void			*win;
+	void			*img;
 	char			**map;
+	int 			*coins;
 	int				x;
-	unsigned int	width;
-	unsigned int	height;
+	unsigned int	w;
+	unsigned int	h;
 }	t_vars;
 
-
-typedef struct t_count
+typedef struct s_count
 {
+	int *c;
     int p;
-    int c ;
     int zero;
     int one;
     int exit;
-}s_count;
+}	t_count;
 
+void	ft_putendl_fd(char *s, int fd);
 char	*get_next_line(int fd);
 char	*ft_strdup(const char *s);
 int	    ft_strlen(const char *str);
@@ -40,7 +46,7 @@ char	*ft_strchr(const char *s, int c);
 int		ft_int_strchr(const char *s, int c);
 void	str_is_one(char *str);
 void	ft_error(char *str);
-void	check_items(char **str, int height);
+int	check_items(char **str, int height);
 void	check_map(char **str, int height, int width);
 int		count_argc(char *filename);
 void	begin_end_one(char *str, int width);
