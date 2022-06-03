@@ -24,14 +24,14 @@ char	*ft_free(char **lost)
 char	*get_next_line(int fd)
 {
 	int			i;
-	char		buff[11];
+	char		buff[5];
 	char		*ligne;
 	static char	*stock;
 	char		*temp;
 
 	while (ft_int_strchr(stock, '\n') == -1)
 	{
-		i = read(fd, buff, 10);
+		i = read(fd, buff, 5);
 		if (i == 0 || i == -1)
 		{
 			if (stock && stock[0] == '\0')

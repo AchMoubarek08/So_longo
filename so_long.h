@@ -8,30 +8,19 @@
 # include <string.h>
 # include <stddef.h>
 # include <fcntl.h>
+# include <mlx.h>
+# define imgsize 50
 
-// typedef struct t_items
-// {
-//     int window[2];
-//     s_element player;
-//     s_element exit;
-//     s_element *coin;
-//     s_element *terre;
-//     s_element *mur;
-// }s_items;
-
-typedef enum bool
+typedef struct s_vars
 {
-	false,
-	true
-}t_bool;
+	void			*mlx_ptr;
+	void			*mlx_win;
+	char			**map;
+	int				x;
+	unsigned int	width;
+	unsigned int	height;
+}	t_vars;
 
-typedef struct element
-{
-    char name;
-    int x;
-    int y;
-    struct element *next;
-}element, *t_element;
 
 typedef struct t_count
 {
@@ -49,20 +38,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *s, int c);
 int		ft_int_strchr(const char *s, int c);
-
-
-t_bool      stack_vide(t_element st);
-void        print_stack(t_element st, int height);
-void        push_stack(t_element *st, int x, int y, char n);
-t_element   new_pile(void);
-void        fill_stack(t_element *st, char **map, int height);
-
-void	    str_is_one(char *str);
-void        ft_error(char *str);
-void	    check_items(char **str);
-void	    check_map(char **str, int height);
-int	        count_argc(int fd);
-void	    begin_end_one(char *str);
-char	    **map(int fd, int height);
+void	str_is_one(char *str);
+void	ft_error(char *str);
+void	check_items(char **str, int height);
+void	check_map(char **str, int height, int width);
+int		count_argc(char *filename);
+void	begin_end_one(char *str, int width);
+char	**map(char *filename, int height);
+char	*ft_strndup(char *str, unsigned int n);
+void	check_filename(char *str);
 
 #endif
