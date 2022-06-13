@@ -21,7 +21,6 @@ typedef struct s_vars
 	void			*win;
 	void			*img;
 	char			**map;
-	int 			*coins;
 	int				x;
 	unsigned int	w;
 	unsigned int	h;
@@ -29,7 +28,7 @@ typedef struct s_vars
 
 typedef struct s_count
 {
-	int *c;
+	int c;
     int p;
     int zero;
     int one;
@@ -46,7 +45,7 @@ char	*ft_strchr(const char *s, int c);
 int		ft_int_strchr(const char *s, int c);
 void	str_is_one(char *str);
 void	ft_error(char *str);
-int	check_items(char **str, int height);
+void	check_items(char **str, int height);
 void	check_map(char **str, int height, int width);
 int		count_argc(char *filename);
 void	begin_end_one(char *str, int width);
