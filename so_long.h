@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/15 00:18:00 by amoubare          #+#    #+#             */
+/*   Updated: 2022/06/15 00:49:54 by amoubare         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef     SO_LONG_H
 # define    SO_LONG_H
@@ -6,14 +17,11 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <string.h>
+# include <strings.h>
 # include <stddef.h>
 # include <fcntl.h>
 # include <mlx.h>
-# define imgsize 50
-# define left -1
-# define right 1
-# define up -1
-# define down 1
+# define SIZE 50
 
 typedef struct s_vars
 {
@@ -28,17 +36,27 @@ typedef struct s_vars
 
 typedef struct s_count
 {
-	int c;
-    int p;
-    int zero;
-    int one;
-    int exit;
+	int	c;
+	int	p;
+	int	zero;
+	int	one;
+	int	exit;
 }	t_count;
+
+int		*get_item_position(char **str, char c);
+void	swap_player(char **str, int dirc, int x, int y);
+void	*put_items_helper(t_vars mlx, int i, int j);
+void	put_items(t_vars mlx, int z, int k);
+void	move_right(t_vars *mlx, int *tab);
+void	move_left(t_vars *mlx, int *tab);
+void	move_down(t_vars *mlx, int *tab);
+void	move_up(t_vars *mlx, int *tab);
+int		keyhook(int keycode, t_vars *mlx);
 
 void	ft_putendl_fd(char *s, int fd);
 char	*get_next_line(int fd);
 char	*ft_strdup(const char *s);
-int	    ft_strlen(const char *str);
+int		ft_strlen(const char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *s, int c);

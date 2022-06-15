@@ -1,43 +1,55 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/14 23:25:51 by amoubare          #+#    #+#             */
+/*   Updated: 2022/06/15 02:43:12 by amoubare         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "so_long.h"
 
 char	**map(char *filename, int height)
 {
-	char **map;
-	char *str;
-	int j;
-    int fd = open(filename, O_RDONLY);
+	char	**map;
+	char	*str;
+	int		j;
+	int		fd;
+	char	*temp;
+
+	fd = open(filename, O_RDONLY);
 	j = 0;
-	map = (char **)malloc(sizeof(char * ) * height + 1);
-    if(fd == -1)
-        ft_error("Wrong file");
-    str =  get_next_line(fd);
-	while(str)
+	map = (char **)malloc(sizeof(char *) * height + 1);
+	if (fd == -1)
+		ft_error("Wrong file");
+	str = get_next_line(fd);
+	while (height--)
 	{
 		map[j] = ft_strdup(str);
+		free(str);
+		str = NULL;
 		str = get_next_line(fd);
 		j++;
 	}
-	if(str)
-	{
-		map[++j] = ft_strndup(str, ft_strlen(str));
-	}
 	map[++j] = NULL;
-	return(map);
+	return (map);
 }
 
 void	check_map(char **str, int height, int width)
 {
-	int i = 0;
-	char *temp;
-	int g = height;
-	while(g--)
+	int		i;
+	char	*temp;
+
+	i = 0;
+	while (str[i] && height--)
 	{
-		if(i == 0 || i == height)
+		if (i == 0 || i == height)
 			str_is_one(str[i]);
 		else
 			begin_end_one(str[i], width);
 		i++;
 	}
-
 }
