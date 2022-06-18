@@ -6,7 +6,7 @@
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 00:17:37 by amoubare          #+#    #+#             */
-/*   Updated: 2022/06/15 02:39:53 by amoubare         ###   ########.fr       */
+/*   Updated: 2022/06/18 23:22:39 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,11 +113,12 @@ int	main(int argc, char *argv[])
 	mlx.h = count_argc(filename);
 	mlx.map = map(filename, mlx.h);
 	mlx.w = ft_strlen(mlx.map[0]) - 1;
-	check_items(mlx.map, mlx.h);
+	initialize_go(mlx.map, mlx.h);
 	check_map(mlx.map, mlx.h, mlx.w);
 	mlx.ptr = mlx_init();
 	mlx.win = mlx_new_window(mlx.ptr, SIZE * mlx.w, SIZE * mlx.h, "so_long");
 	put_items(mlx, z, k);
+	mlx_hook(mlx.win, 17, 0L, xclose, &mlx);
 	mlx_key_hook(mlx.win, keyhook, &mlx);
 	mlx_loop(mlx.ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 23:41:45 by amoubare          #+#    #+#             */
-/*   Updated: 2022/06/14 23:42:39 by amoubare         ###   ########.fr       */
+/*   Updated: 2022/06/18 23:09:43 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,5 +137,6 @@ int	keyhook(int keycode, t_vars *mlx)
 		move_up(mlx, tab);
 	else if (keycode == 53)
 		exit(0);
+	free(tab);
 	return (0);
 }

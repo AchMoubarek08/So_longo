@@ -6,7 +6,7 @@
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 23:24:18 by amoubare          #+#    #+#             */
-/*   Updated: 2022/06/15 00:13:21 by amoubare         ###   ########.fr       */
+/*   Updated: 2022/06/18 23:21:51 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1)
 		return (ft_strdup(s2));
 	str = (char *)malloc(sizeof(char) * ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (str == 0)
+	if (str == NULL)
 		return (0);
 	while (s1[i])
 	{

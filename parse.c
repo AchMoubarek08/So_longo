@@ -6,7 +6,7 @@
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 00:14:01 by amoubare          #+#    #+#             */
-/*   Updated: 2022/06/15 00:17:17 by amoubare         ###   ########.fr       */
+/*   Updated: 2022/06/16 01:09:53 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,9 @@ void	begin_end_one(char *str, int width)
 	}
 }
 
-void	check_items(char **str, int height)
+void	initialize_go(char **map, int height)
 {
 	int		i;
-	int		j;
 	t_count	count;
 
 	count.p = 0;
@@ -52,8 +51,14 @@ void	check_items(char **str, int height)
 	count.zero = 0;
 	count.c = 0;
 	count.exit = 0;
-	j = 0;
 	i = 0;
+	check_items(map, height, count, i);
+}
+
+void	check_items(char **str, int height, t_count count, int i)
+{
+	int	j;
+
 	while (height--)
 	{
 		j = 0;

@@ -6,7 +6,7 @@
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 00:18:00 by amoubare          #+#    #+#             */
-/*   Updated: 2022/06/15 00:49:54 by amoubare         ###   ########.fr       */
+/*   Updated: 2022/06/18 23:39:06 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	move_left(t_vars *mlx, int *tab);
 void	move_down(t_vars *mlx, int *tab);
 void	move_up(t_vars *mlx, int *tab);
 int		keyhook(int keycode, t_vars *mlx);
+void	initialize_go(char **map, int height);
 
 void	ft_putendl_fd(char *s, int fd);
 char	*get_next_line(int fd);
@@ -63,12 +64,14 @@ char	*ft_strchr(const char *s, int c);
 int		ft_int_strchr(const char *s, int c);
 void	str_is_one(char *str);
 void	ft_error(char *str);
-void	check_items(char **str, int height);
+void	check_items(char **str, int height, t_count count, int i);
 void	check_map(char **str, int height, int width);
 int		count_argc(char *filename);
 void	begin_end_one(char *str, int width);
 char	**map(char *filename, int height);
 char	*ft_strndup(char *str, unsigned int n);
 void	check_filename(char *str);
+int		xclose(t_vars *mlx);
+char	*ft_free(char **lost);
 
 #endif

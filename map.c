@@ -6,7 +6,7 @@
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 23:25:51 by amoubare          #+#    #+#             */
-/*   Updated: 2022/06/15 02:43:12 by amoubare         ###   ########.fr       */
+/*   Updated: 2022/06/18 23:18:48 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ char	**map(char *filename, int height)
 	{
 		map[j] = ft_strdup(str);
 		free(str);
-		str = NULL;
 		str = get_next_line(fd);
 		j++;
 	}
@@ -52,4 +51,11 @@ void	check_map(char **str, int height, int width)
 			begin_end_one(str[i], width);
 		i++;
 	}
+}
+
+int	xclose(t_vars *mlx)
+{
+	mlx_destroy_window(mlx->ptr, mlx->win);
+	exit(0);
+	return (0);
 }
