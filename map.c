@@ -6,7 +6,7 @@
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 23:25:51 by amoubare          #+#    #+#             */
-/*   Updated: 2022/06/19 00:09:00 by amoubare         ###   ########.fr       */
+/*   Updated: 2022/06/21 05:16:24 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	**map(char *filename, int height)
 		str = get_next_line(fd);
 		j++;
 	}
-	map[++j] = NULL;
+	map[j] = NULL;
 	return (map);
 }
 
@@ -43,7 +43,7 @@ void	check_map(char **str, int height, int width)
 	char	*temp;
 
 	i = 0;
-	while (str[i] && height--)
+	while (str[i])
 	{
 		if (i == 0 || i == height)
 			str_is_one(str[i]);

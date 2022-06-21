@@ -6,7 +6,7 @@
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 00:14:01 by amoubare          #+#    #+#             */
-/*   Updated: 2022/06/19 00:15:53 by amoubare         ###   ########.fr       */
+/*   Updated: 2022/06/21 05:19:13 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,31 +55,31 @@ void	initialize_go(char **map, int height)
 	check_items(map, height, count, i);
 }
 
-void	check_items(char **str, int height, t_count count, int i)
+void	check_items(char **map, int height, t_count count, int i)
 {
 	int	j;
 
 	while (height--)
 	{
 		j = 0;
-		while (str[i][j])
+		while (map[i][j])
 		{
-			if (str[i][j] == '1')
+			if (map[i][j] == '1')
 				count.one++;
-			else if (str[i][j] == 'P')
+			else if (map[i][j] == 'P')
 				count.p++;
-			else if (str[i][j] == 'E')
+			else if (map[i][j] == 'E')
 				count.exit++;
-			else if (str[i][j] == '0')
+			else if (map[i][j] == '0')
 				count.zero++;
-			else if (str[i][j] == 'C')
+			else if (map[i][j] == 'C')
 				count.c++;
-			else if (str[i][j] != '\n')
-				ft_error("Item not found.");
+			else if (map[i][j] != '\n')
+				ft_error("invalid item");
 			j++;
 		}
 		i++;
 	}
 	if (count.p != 1 || count.exit != 1 || count.c < 1)
-		ft_error("Missing item(s).");
+		ft_error("minimum");
 }
