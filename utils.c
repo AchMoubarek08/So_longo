@@ -6,7 +6,7 @@
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 00:14:21 by amoubare          #+#    #+#             */
-/*   Updated: 2022/06/18 23:48:33 by amoubare         ###   ########.fr       */
+/*   Updated: 2022/06/21 05:23:37 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	count_argc(char *filename)
 	i = 0;
 	fd = open(filename, O_RDONLY);
 	str = get_next_line(fd);
+	if (str == NULL)
+		ft_error("empty file");
 	temp = str;
 	while (str)
 	{	
